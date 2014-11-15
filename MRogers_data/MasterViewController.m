@@ -27,6 +27,20 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    //CatBreed *cat1 = [[CatBreed alloc] init];
+    //NSLog([cat1 print]);
+    [CatBreed createDatabase];
+   /* CatBreed *cat2 = [[CatBreed alloc] initWithName:@"Ragdoll"
+                                              Blurb:@"The Ragdoll is a cat breed with blue eyes and a distinct colorpoint coat. It is a large and muscular semi-longhair cat with a soft and silky coat."
+                                               Type:@"Long"
+                                             Origin:@"USA"
+                                                 Id:90];
+    //NSLog([cat2 print]);
+    //[CatBreed getAll];
+    //NSLog(@"%@",[[CatBreed getCat:33] print]);
+    */
+    [self loadCats];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,11 +48,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) loadCats{
+    //iterate through cats and fill detail Objects
+    for(CatBreed *cat in [CatBreed getAll]){
+        [self insertNewObject:cat];
+    }
+}
+
 - (void)insertNewObject:(id)sender {
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
-    [self.objects insertObject:[NSDate date] atIndex:0];
+    [self.objects insertObject:sender atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -48,7 +69,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        CatBreed *object = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
@@ -67,7 +88,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    CatBreed *cat = (CatBreed *) object;
+    cell.textLabel.text = cat.name;
     return cell;
 }
 
@@ -78,6 +100,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDate *object = self.objects[indexPath.row];
+        CatBreed *cat = (CatBreed *) object;
+        [CatBreed deleteCat:cat];
         [self.objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

@@ -7,11 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DetailViewController : UIViewController
+#import "CatBreed.h"
+@interface DetailViewController : UIViewController <NSURLConnectionDelegate>{
+    NSMutableData *_responseData;
+}
 
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
+@property IBOutlet UILabel *nameLabel;
+@property IBOutlet UILabel *originLabel;
+@property IBOutlet UILabel *typeLabel;
+@property IBOutlet UILabel *blurbLabel;
+@property IBOutlet UIBarButtonItem *editBtn;
+@property IBOutlet UITextField *nameField;
+@property IBOutlet UITextField *originField;
+@property IBOutlet UITextField *typeField;
+@property IBOutlet UITextField *blurbField;
+@property IBOutlet UIImageView *imageView;
+-(IBAction)edit:(id)sender;
 @end
 

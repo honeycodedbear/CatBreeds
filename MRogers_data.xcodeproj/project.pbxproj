@@ -15,6 +15,9 @@
 		AF10D48D1A1312890018AF8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF10D48C1A1312890018AF8B /* Images.xcassets */; };
 		AF10D4901A1312890018AF8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF10D48E1A1312890018AF8B /* LaunchScreen.xib */; };
 		AF10D49C1A1312890018AF8B /* MRogers_dataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF10D49B1A1312890018AF8B /* MRogers_dataTests.m */; };
+		AF10D4AC1A1317090018AF8B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF10D4AB1A1317090018AF8B /* libsqlite3.dylib */; };
+		AF10D4B21A131A6E0018AF8B /* CatBreed.m in Sources */ = {isa = PBXBuildFile; fileRef = AF10D4B11A131A6E0018AF8B /* CatBreed.m */; };
+		AF71A5081A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,10 @@
 		AF10D4951A1312890018AF8B /* MRogers_dataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MRogers_dataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF10D49A1A1312890018AF8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF10D49B1A1312890018AF8B /* MRogers_dataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRogers_dataTests.m; sourceTree = "<group>"; };
+		AF10D4AB1A1317090018AF8B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AF10D4B01A131A6E0018AF8B /* CatBreed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatBreed.h; sourceTree = "<group>"; };
+		AF10D4B11A131A6E0018AF8B /* CatBreed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatBreed.m; sourceTree = "<group>"; };
+		AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "american-shorthair-cat-tabby-11.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF10D4AC1A1317090018AF8B /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,8 @@
 		AF10D4701A1312890018AF8B = {
 			isa = PBXGroup;
 			children = (
+				AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */,
+				AF10D4AB1A1317090018AF8B /* libsqlite3.dylib */,
 				AF10D47B1A1312890018AF8B /* MRogers_data */,
 				AF10D4981A1312890018AF8B /* MRogers_dataTests */,
 				AF10D47A1A1312890018AF8B /* Products */,
@@ -84,6 +94,8 @@
 		AF10D47B1A1312890018AF8B /* MRogers_data */ = {
 			isa = PBXGroup;
 			children = (
+				AF10D4B01A131A6E0018AF8B /* CatBreed.h */,
+				AF10D4B11A131A6E0018AF8B /* CatBreed.m */,
 				AF10D4801A1312890018AF8B /* AppDelegate.h */,
 				AF10D4811A1312890018AF8B /* AppDelegate.m */,
 				AF10D4831A1312890018AF8B /* MasterViewController.h */,
@@ -206,6 +218,7 @@
 			files = (
 				AF10D48B1A1312890018AF8B /* Main.storyboard in Resources */,
 				AF10D4901A1312890018AF8B /* LaunchScreen.xib in Resources */,
+				AF71A5081A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg in Resources */,
 				AF10D48D1A1312890018AF8B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF10D4B21A131A6E0018AF8B /* CatBreed.m in Sources */,
 				AF10D4821A1312890018AF8B /* AppDelegate.m in Sources */,
 				AF10D4851A1312890018AF8B /* MasterViewController.m in Sources */,
 				AF10D47F1A1312890018AF8B /* main.m in Sources */,
@@ -418,6 +432,7 @@
 				AF10D4A11A1312890018AF8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF10D4A21A1312890018AF8B /* Build configuration list for PBXNativeTarget "MRogers_dataTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +441,7 @@
 				AF10D4A41A1312890018AF8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
