@@ -90,9 +90,22 @@
         [self.typeField setHidden:true];
         [self.blurbField setHidden:true];
         
+        /*
         [self asyncFetchImageFromUrl:@"http://imgstocks.com/wp-content/uploads/2013/11/10-friendly-cat-breeds-for-houses-list-visit.jpg" Completion:^(UIImage *img) {
             _imageView.image = img;
-        }];
+        }];*/
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",cat.name]];
+        UIImage *catPic = [UIImage imageWithContentsOfFile:imagePath];
+        
+        if(catPic == nil || catPic == Nil){
+            _imageView.image = [UIImage imageNamed:@"american-shorthair-cat-tabby-11.jpg"];;
+
+        }else{
+            _imageView.image = catPic;
+        }
+        
     }
 }
 
@@ -118,6 +131,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureView];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickImageFromPhone)];
+    singleTap.numberOfTapsRequired = 1;
+    [_imageView setUserInteractionEnabled:YES];
+    [_imageView addGestureRecognizer:singleTap];
 }
 
 #pragma mark - async queue & async tasks
@@ -131,6 +148,42 @@
         });
     }
     return sharedQueue;
+}
+
+-(IBAction)pickImage:(id)sender{
+    [self pickImageFromPhone];
+}
+
+-(void)pickImageFromPhone{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissModalViewControllerAnimated:YES];
+    
+    _imageView.image = (UIImage*) [info objectForKey:UIImagePickerControllerOriginalImage];
+    //save image
+    NSData *imageData = UIImagePNGRepresentation(_imageView.image);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    CatBreed *cat = (CatBreed *)self.detailItem;
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",cat.name]];
+    NSLog((@"pre writing to file"));
+    if (![imageData writeToFile:imagePath atomically:NO])
+    {
+        NSLog((@"Failed to cache image data to disk"));
+    }
+    else
+    {
+        NSLog((@"the cachedImagedPath is %@",imagePath));
+        //need to add image path to db
+    }
+    
+    
 }
 
 -(void)asyncFetchImageFromUrl:(NSString *)fileURL Completion:(void (^)(UIImage* img))completion {

@@ -17,7 +17,7 @@
 @property IBOutlet UILabel *nameLabel;
 @property IBOutlet UILabel *originLabel;
 @property IBOutlet UILabel *typeLabel;
-@property IBOutlet UILabel *blurbLabel;
+@property IBOutlet UITextView *blurbLabel;
 @property IBOutlet UIBarButtonItem *editBtn;
 @property IBOutlet UITextField *nameField;
 @property IBOutlet UITextField *originField;
@@ -25,5 +25,6 @@
 @property IBOutlet UITextField *blurbField;
 @property IBOutlet UIImageView *imageView;
 -(IBAction)edit:(id)sender;
+-(IBAction)pickImage:(id)sender;
 @end
 

@@ -56,7 +56,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz"/>
+                    <navigationItem key="navigationItem" title="Cat Breeds" id="tQt-TN-PWz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,12 +92,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaZ-Eo-wya">
-                                <rect key="frame" x="22" y="363" width="260" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ec-Ul-UTv">
                                 <rect key="frame" x="22" y="253" width="260" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,12 +113,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QS9-xX-hSY">
-                                <rect key="frame" x="16" y="72" width="266" height="177"/>
+                                <rect key="frame" x="22" y="64" width="260" height="181"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-KJ-FJK">
+                                <rect key="frame" x="22" y="344" width="260" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN">
+                    <navigationItem key="navigationItem" id="cra-N8-TIN">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="LQb-9M-xV9">
                             <connections>
                                 <action selector="edit:" destination="Ah7-4n-0Wa" id="09Z-A0-V3r"/>
@@ -133,9 +133,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blurbField" destination="2Ic-3E-TuB" id="TDU-8M-Ka8"/>
-                        <outlet property="blurbLabel" destination="GaZ-Eo-wya" id="NIw-16-zgF"/>
+                        <outlet property="blurbLabel" destination="EfA-KJ-FJK" id="jyb-ef-yCx"/>
                         <outlet property="editBtn" destination="LQb-9M-xV9" id="duL-7f-qjc"/>
-                        <outlet property="imageView" destination="QS9-xX-hSY" id="q3n-Pn-tZM"/>
+                        <outlet property="imageView" destination="QS9-xX-hSY" id="FwH-3y-wu8"/>
                         <outlet property="nameField" destination="5ec-Ul-UTv" id="yzc-xz-Tba"/>
                         <outlet property="nameLabel" destination="KEl-zU-j19" id="anI-G0-DLU"/>
                         <outlet property="originField" destination="D6z-El-Fbk" id="6ow-kr-8mS"/>

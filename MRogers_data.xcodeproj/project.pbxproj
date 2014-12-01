@@ -49,7 +49,7 @@
 		AF10D4AB1A1317090018AF8B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AF10D4B01A131A6E0018AF8B /* CatBreed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatBreed.h; sourceTree = "<group>"; };
 		AF10D4B11A131A6E0018AF8B /* CatBreed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatBreed.m; sourceTree = "<group>"; };
-		AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "american-shorthair-cat-tabby-11.jpg"; sourceTree = "<group>"; };
+		AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "american-shorthair-cat-tabby-11.jpg"; path = "../american-shorthair-cat-tabby-11.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,6 @@
 		AF10D4701A1312890018AF8B = {
 			isa = PBXGroup;
 			children = (
-				AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */,
 				AF10D4AB1A1317090018AF8B /* libsqlite3.dylib */,
 				AF10D47B1A1312890018AF8B /* MRogers_data */,
 				AF10D4981A1312890018AF8B /* MRogers_dataTests */,
@@ -94,6 +93,7 @@
 		AF10D47B1A1312890018AF8B /* MRogers_data */ = {
 			isa = PBXGroup;
 			children = (
+				AF71A5071A17FA4900FA4F07 /* american-shorthair-cat-tabby-11.jpg */,
 				AF10D4B01A131A6E0018AF8B /* CatBreed.h */,
 				AF10D4B11A131A6E0018AF8B /* CatBreed.m */,
 				AF10D4801A1312890018AF8B /* AppDelegate.h */,

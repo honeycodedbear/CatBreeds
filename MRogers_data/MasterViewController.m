@@ -27,19 +27,7 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    
-    //CatBreed *cat1 = [[CatBreed alloc] init];
-    //NSLog([cat1 print]);
     [CatBreed createDatabase];
-   /* CatBreed *cat2 = [[CatBreed alloc] initWithName:@"Ragdoll"
-                                              Blurb:@"The Ragdoll is a cat breed with blue eyes and a distinct colorpoint coat. It is a large and muscular semi-longhair cat with a soft and silky coat."
-                                               Type:@"Long"
-                                             Origin:@"USA"
-                                                 Id:90];
-    //NSLog([cat2 print]);
-    //[CatBreed getAll];
-    //NSLog(@"%@",[[CatBreed getCat:33] print]);
-    */
     [self loadCats];
 }
 
@@ -59,7 +47,19 @@
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
-    [self.objects insertObject:sender atIndex:0];
+    
+    if([sender class] != [CatBreed class]){
+        CatBreed *newCat = [[CatBreed alloc] initWithName:@"Ragdoll"
+                                                  Blurb:@"The Ragdoll is a cat breed with blue eyes and a distinct colorpoint coat. It is a large and muscular semi-longhair cat with a soft and silky coat."
+                                                   Type:@"Long"
+                                                 Origin:@"USA"
+                                                     Id:90];
+        [self.objects insertObject:newCat atIndex:0];
+        [newCat saveData];
+    }else{
+        [self.objects insertObject:sender atIndex:0];
+    }
+
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -85,11 +85,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = self.objects[indexPath.row];
     CatBreed *cat = (CatBreed *) object;
     cell.textLabel.text = cat.name;
+    
     return cell;
 }
 
