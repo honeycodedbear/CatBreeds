@@ -273,6 +273,8 @@ static sqlite3 *contactDB;
         } else {
             NSLog( @"Failed to open/create database");
         }
+        
+        
     }
 }
 @end
